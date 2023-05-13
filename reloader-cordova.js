@@ -204,7 +204,7 @@ const Reloader = {
 
     if (shouldCheck) {
 
-      const reloadAllowed = this._isCheckBeforeReload() && !this.isChecked.get();
+      const reloadAllowed = ! this._isCheckBeforeReload() || this.isChecked.get();
 
       // Show the splashscreen if available (this has been causing issues on iOS)
       if (reloadAllowed && navigator && navigator.splashscreen && navigator.splashscreen.show) {
