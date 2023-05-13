@@ -242,7 +242,10 @@ const Reloader = {
       // will happen in the reload package then we are updating our timestamps
       this.prepareToReload();
 
-      this.isChecked.set(false);
+      // This causes problems - Reload._onMigrate sometimes calls this method again
+      // No need to clear this flag anyway, it will be cleared on reload
+      // this.isChecked.set(false);
+
       return [true, {}];
     }
 
